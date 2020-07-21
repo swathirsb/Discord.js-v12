@@ -81,7 +81,7 @@ module.exports = class MenuDocsClient extends Client {
 		this.prefix = options.prefix;
 	}
 
-	async start(token = this.token) {
+	async start(token = process.env.DISCORD_BOT) {
 		this.utils.loadCommands();
 		super.login(token);
 	}
