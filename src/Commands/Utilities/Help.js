@@ -5,7 +5,7 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			aliases: ['help'],
+			aliases: ['halp'],
 			description: 'Displays all the commands in the bot',
 			category: 'Utilities',
 			usage: '[command]'
@@ -38,7 +38,8 @@ module.exports = class extends Command {
 			embed.setDescription([
 				`These are the available commands for ${message.guild.name}`,
 				`The bot's prefix is: ${this.client.prefix}`,
-				`Command Parameters: \`<>\` is strict & \`[]\` is optional`
+				`Command Parameters: \`<>\` is strict & \`[]\` is optional`,
+				`Owners: ${this.client.owners}`
 			]);
 			let categories;
 			if (!this.client.owners.includes(message.author.id)) {

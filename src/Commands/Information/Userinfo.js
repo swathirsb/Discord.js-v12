@@ -47,14 +47,14 @@ module.exports = class extends Command {
 				`**❯ Avatar:** [Link to avatar](${member.user.displayAvatarURL({ dynamic: true })})`,
 				`**❯ Time Created:** ${moment(member.user.createdTimestamp).format('LT')} ${moment(member.user.createdTimestamp).format('LL')} ${moment(member.user.createdTimestamp).fromNow()}`,
 				`**❯ Status:** ${member.user.presence.status}`,
-				`**❯ Game:** ${member.user.presence.game || 'Not playing a game.'}`,
+				`**❯ Game:** ${member.user.presence.activities || 'Not playing a game.'}`,
 				`\u200b`
 			])
 			.addField('Member', [
 				`**❯ Highest Role:** ${member.roles.highest.id === message.guild.id ? 'None' : member.roles.highest.name}`,
 				`**❯ Server Join Date:** ${moment(member.joinedAt).format('LL LTS')}`,
 				`**❯ Hoist Role:** ${member.roles.hoist ? member.roles.hoist.name : 'None'}`,
-				`**❯ Roles [${roles.length}]:** ${roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : 'None'}`,
+				`**❯ Roles [${roles.length}]:** ${roles.length < 32 ? roles.join(', ') : roles.length > 32 ? this.client.utils.trimArray(roles) : 'None'}`,
 				`\u200b`
 			]);
 		return message.channel.send(embed);
